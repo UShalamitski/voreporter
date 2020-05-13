@@ -1,0 +1,33 @@
+group 'com.epam'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'application'
+apply plugin: 'distribution'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+mainClassName = 'com.epam.voreporter.runner.Main'
+
+project.afterEvaluate {
+    jar {
+        manifest {
+            attributes(
+                    'Class-Path': configurations.compile.collect { it.toURL() }.join(' '),
+                    'Main-Class': 'com.epam.voreporter.runner.Main'
+            )
+        }
+    }
+}
+
+dependencies {
+    compile "com.versionone:VersionOne.SDK.Java.APIClient:${v1SdkVersion}"
+    compile "org.apache.commons:commons-lang3:${apacheCommonsVersion}"
+    compile "org.springframework:spring-core:${springVersion}"
+    compile "org.springframework:spring-context:${springVersion}"
+    compile "org.springframework:spring-beans:${springVersion}"
+}
