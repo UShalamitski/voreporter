@@ -94,14 +94,14 @@ public class V1IntegrationService {
                 .addEqual(FilterBuilder.Operator.EQUAL, teamNameAttribute, teamName)
                 .addEqual(FilterBuilder.Operator.EQUAL, ownerNamesAttribute, memberNames)
                 .addEqual(FilterBuilder.Operator.EQUAL, taskStatusAttribute, "Completed")
-                //.addEqual(FilterBuilder.Operator.EQUAL, timeboxAssetStateAttribute, ASSET_STATE_ACTIVE)
+                .addEqual(FilterBuilder.Operator.EQUAL, timeboxAssetStateAttribute, ASSET_STATE_ACTIVE)
                 .addEqual(FilterBuilder.Operator.EQUAL, taskAssetState, ASSET_STATE_ACTIVE)
                 .build();
         IFilterTerm inProgressTasksFilter = new FilterBuilder()
                 .addEqual(FilterBuilder.Operator.EQUAL, teamNameAttribute, teamName)
                 .addEqual(FilterBuilder.Operator.EQUAL, ownerNamesAttribute, memberNames)
                 .addEqual(FilterBuilder.Operator.EQUAL, taskStatusAttribute, "In Progress")
-                //.addEqual(FilterBuilder.Operator.EQUAL, timeboxAssetStateAttribute, ASSET_STATE_ACTIVE)
+                .addEqual(FilterBuilder.Operator.EQUAL, timeboxAssetStateAttribute, ASSET_STATE_ACTIVE)
                 .addEqual(FilterBuilder.Operator.EQUAL, taskAssetState, ASSET_STATE_ACTIVE)
                 .build();
 
